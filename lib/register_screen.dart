@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:listandtable/layout/sidebar.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -25,9 +26,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Register'),
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          ),
+        ),
+      ),
+      drawer: Sidebar(), // Use your existing Sidebar widget here
       body: Column(
         children: [
-          // Top 40% for the image (same as LoginScreen)
+          // Top 40% for the image
           Container(
             height: MediaQuery.of(context).size.height * 0.4,
             decoration: BoxDecoration(
@@ -146,9 +159,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 }
-
-
-
 
 class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;

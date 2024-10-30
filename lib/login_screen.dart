@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:listandtable/layout/sidebar.dart'; // Import your Sidebar
 import 'register_screen.dart'; // Import the RegisterScreen
 
 class LoginScreen extends StatefulWidget {
@@ -24,6 +25,18 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Login'),
+        leading: Builder(
+ builder: (context) => IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          },
+ ),
+        ),
+      ),
+      drawer: Sidebar(), // Use your existing Sidebar widget here
       body: Column(
         children: [
           // Top 40% for the image
@@ -147,8 +160,6 @@ class _LoginScreenState extends State<LoginScreen> {
 }
 
 // CustomButton remains the same...
-
-
 class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String label;
