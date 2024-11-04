@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:listandtable/contact_page.dart';
+import 'package:listandtable/dashboard.dart';
 import 'package:listandtable/layout/home.dart';
 import 'package:listandtable/login_screen.dart';
 import 'package:listandtable/register_screen.dart';
@@ -50,8 +52,11 @@ _createDrawerItem(
 _createDrawerItem(
   icon: Icons.contact_phone, // Changed to a more suitable icon
   text: 'Contact',
-  onTap: () {
-    // Add your navigation logic here
+ onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ContactPage()), // Navigate to Home
+    );
   },
 ),
 _createDrawerItem(
@@ -84,8 +89,11 @@ _createDrawerItem(
 _createDrawerItem(
   icon: Icons.dashboard, // Changed to a more suitable icon
   text: 'Main Screen',
-  onTap: () {
-    // Add your navigation logic here
+ onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => DashboardScreen()), // Navigate to Home
+    );
   },
 ),
 
